@@ -3,8 +3,8 @@ class Memosight < Formula
 
   desc "Local-first image-to-structured-visual-text CLI"
   homepage "https://github.com/MemoBloom/MemoSight"
-  url "file:///Users/kanzhiwu/Workspace/memosight/.worktrees/brew-release/dist/memosight-0.1.0.tar.gz"
-  sha256 "1af9e22842d4e9f408ddbace4ccba95dc1f590c34e4825ff5b505d24b5d287f2"
+  url "https://github.com/MemoBloom/MemoSight/archive/refs/tags/v0.1.0.tar.gz"
+  sha256 "485c1fc6d06debb5e8f67c40d9d66f71ab0a5147515651c18361163dc5b17cd9"
   license "MIT"
 
   depends_on "python@3.13"
