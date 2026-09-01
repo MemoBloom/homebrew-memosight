@@ -8,6 +8,7 @@ class Memosight < Formula
   license "MIT"
 
   depends_on "python@3.13"
+  depends_on "rust" => :build
 
   resource "annotated-types" do
     url "https://files.pythonhosted.org/packages/5f/56/a8120250d128bed162cd73c76d45f6ef9991f3e068f62a8ee060afa3104a/annotated_types-0.8.0.tar.gz"
@@ -49,11 +50,9 @@ class Memosight < Formula
     sha256 "51a9c5f7b2f8e636f04c6cada605d9b6a3bf1348fdf945a3d8869b19bba0ee08"
   end
 
-  # pydantic-core's sdist builds with a Rust toolchain; the cp313 macOS arm64
-  # wheel keeps this tap build self-contained for local validation.
   resource "pydantic-core" do
-    url "https://files.pythonhosted.org/packages/21/43/6323b1f8b217780454c61304bcd2b38ae4762f50754414124603ccc90bb2/pydantic_core-2.46.5-cp313-cp313-macosx_11_0_arm64.whl"
-    sha256 "f332f0e72a5a0400141f830744e141bf9f97917878dbe968669e8a7fefea78ff"
+    url "https://files.pythonhosted.org/packages/af/f9/8a06bea35ef8daf588f707784c973a7046e0034c8d8cfb08828eeffb8b75/pydantic_core-2.46.5.tar.gz"
+    sha256 "10416c15b8839ecc4ef4d0885da76da6fd0f67333a0eb8aff6d93c4b8f2910fc"
   end
 
   resource "typing-extensions" do
