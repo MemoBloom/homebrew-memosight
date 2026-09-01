@@ -69,10 +69,13 @@ class Memosight < Formula
   def install
     virtualenv_install_with_resources without: ["pydantic-core"]
     # Homebrew's pip_install only accepts py3-none-any wheels; install the
-    # pinned platform wheel directly (sha256 is verified on download).
+    # pinned platform wheel directly (sha256 is verified on download). The
+    # brew cache filename has a hash prefix that pip rejects, so copy it to
+    # its canonical wheel name first.
+    wheel = buildpath/resource("pydantic-core").downloader.basename
+    cp resource("pydantic-core").cached_download, wheel
     system "python3.13", "-m", "pip", "--python=#{libexec}/bin/python",
-           "install", "--verbose", "--no-deps", "--ignore-installed",
-           resource("pydantic-core").cached_download
+           "install", "--verbose", "--no-deps", "--ignore-installed", wheel
   end
 
   test do
